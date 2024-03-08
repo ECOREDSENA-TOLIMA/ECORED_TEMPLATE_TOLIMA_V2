@@ -1,7 +1,7 @@
 export default {
   global: {
-    componenteFormativo: 'NOMBRE DEL COMPONENTE FORMATIVO',
-    descripcionCurso: 'BREVE DESCRIPCIÓN',
+    componenteFormativo: 'NOMBRE_DEL_COMPONENTE_FORMATIVO',
+    descripcionCurso: 'BREVE_DESCRIPCIÓN',
     imagenBannerPrincipal: require('@/assets/curso/portada/banner-princiapal.svg'),
     fondoBannerPrincipal: require('@/assets/curso/portada/fondo-banner-principal.png'),
     imagenesDecorativasBanner: [
@@ -31,12 +31,12 @@ export default {
       {
         nombreRuta: 'tema1',
         numero: '1',
-        titulo: 'Titulo de primer nivel',
+        titulo: 'Titulo_de_primer_nivel',
         desarrolloContenidos: true,
         subMenu: [
           {
             numero: '1.1',
-            titulo: 'Titulo de segundo nivel',
+            titulo: 'Titulo_de_segundo_nivel',
             hash: 't_1_1',
           },
         ],
@@ -45,13 +45,13 @@ export default {
       {
         nombreRuta: 'tema2',
         numero: '2',
-        titulo: 'Titulo de primer nivel',
+        titulo: 'Titulo_de_primer_nivel',
         desarrolloContenidos: true,
       },
       {
         nombreRuta: 'tema3',
         numero: '3',
-        titulo: 'Titulo de primer nivel',
+        titulo: 'Titulo_de_primer_nivel',
         desarrolloContenidos: true,
       },
     ],
@@ -102,10 +102,10 @@ export default {
   },
   complementario: [
     {
-      tema: '',
-      referencia: '',
-      tipo: '',
-      link: 'https://www.google.com/',
+      tema: 'Tema_complementario',
+      referencia: 'Referencia_complementario',
+      tipo: 'Tipo_complementario',
+      link: 'Link_complementario',
     },
     {
       tema: '',
@@ -116,18 +116,14 @@ export default {
   ],
   glosario: [
     {
-      termino: 'Término',
-      significado: 'Texto de la definición',
-    },
-    {
-      termino: '<em>Término con extranjerismo</em>',
-      significado: 'Definición',
+      termino: 'Termino_glosario',
+      significado: 'Significado_glosario',
     },
   ],
   referencias: [
     {
-      referencia: '',
-      link: '',
+      referencia: 'Nombre_referencias',
+      link: 'Link_referencias',
     },
   ],
   creditos: [
@@ -135,15 +131,15 @@ export default {
       titulo: 'ECOSISTEMA DE RECURSOS EDUCATIVOS DIGITALES',
       autores: [
         {
-          nombre: 'Milady Tatiana Villamil Castellanos',
-          cargo: 'Responsable del Ecosistema',
+          nombre: 'Claudia Patricia Aristizábal Gutiérrez',
+          cargo: 'Responsable del equipo',
           centro: 'Dirección General',
         },
         {
-          nombre: 'Olga Constanza Bermúdez Jaimes',
-          cargo: 'Responsable de Línea de Producción',
+          nombre: 'Liliana Victoria Morales Gualdrón',
+          cargo: 'Responsable de línea de producción',
           centro:
-            'Centro de Servicios de Salud - Regional Antioquia',
+            'Centro de Comercio y Servicios - Regional Tolima',
         },
       ],
     },
@@ -151,10 +147,9 @@ export default {
       titulo: 'CONTENIDO INSTRUCCIONAL',
       autores: [
         {
-          nombre: 'Nombre responsable',
-          cargo: 'Nombre del rol',
-          centro:
-            'Centro de Servicios de Salud - Regional Antioquia',
+          nombre: 'Nombre_responsable',
+          cargo: 'Nombre_rol',
+          centro: 'Nombre_centro_formación',
         },
       ],
     },
@@ -162,28 +157,22 @@ export default {
       titulo: 'DISEÑO Y DESARROLLO DE RECURSOS EDUCATIVOS DIGITALES',
       autores: [
         {
-          nombre: 'Nombre responsable',
-          cargo: 'Diseñador de Contenidos Digitales',
+          nombre: 'Nombre_responsable',
+          cargo: 'Diseñador web',
           centro:
-            'Centro de Servicios de Salud - Regional Antioquia',
+            'Centro de Comercio y Servicios - Regional Tolima',
         },
         {
-          nombre: 'Nombre responsable',
+          nombre: 'Diego Fernando Velasco Güiza',
           cargo: 'Desarrollador Fullstack',
           centro:
-            'Centro de Servicios de Salud - Regional Antioquia',
+            'Centro de Comercio y Servicios - Regional Tolima',
         },
         {
-          nombre: 'Nombre',
-          cargo: 'Animador y Producción audiovisual',
+          nombre: 'Nombre_responsable',
+          cargo: 'Animación y producción audiovisual',
           centro:
-            'Centro de Servicios de Salud - Regional Antioquia',
-        },
-        {
-          nombre: 'Nombre',
-          cargo: 'Actividad Didáctica',
-          centro:
-            'Centro de Servicios de Salud - Regional Antioquia',
+            'Centro de Comercio y Servicios - Regional Tolima',
         },
       ],
     },
@@ -191,29 +180,23 @@ export default {
       titulo: 'VALIDACIÓN RECURSO EDUCATIVO DIGITAL',
       autores: [
         {
-          nombre: 'Luis Gabriel Urueta Alvarez',
-          cargo: 'Validador de Recursos Educativos Digitales',
+          nombre: 'Nombre_responsable',
+          cargo: 'Evaluación de contenidos inclusivos y accesibles',
           centro:
-            'Centro de Servicios de Salud - Regional Antioquia',
+            'Centro de Comercio y Servicios - Regional Tolima',
         },
         {
-          nombre: 'Jaime Hernan Tejada',
-          cargo: 'Validador de Recursos Educativos Digitales',
+          nombre: 'Nombre_responsable',
+          cargo: 'Validación de recursos educativos digitales',
           centro:
-            'Centro de Servicios de Salud - Regional Antioquia',
+            'Centro de Comercio y Servicios - Regional Tolima',
         },
         {
-          nombre: 'Daniel Ricardo Mutis Gómez',
-          cargo: 'Evaluador para contenidos inclusivos y accesibles',
+          nombre: 'Nombre_responsable',
+          cargo: 'Validación de recursos educativos digitales',
           centro:
-            'Centro de Servicios de Salud - Regional Antioquia',
+            'Centro de Comercio y Servicios - Regional Tolima',
         },
-        {
-          nombre: 'Margarita Marcela Medrano',
-          cargo: 'Evaluador para contenidos inclusivos y accesibles',
-          centro:
-            'Centro de Servicios de Salud - Regional Antioquia',
-        }
       ],
     },
   ],
