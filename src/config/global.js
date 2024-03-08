@@ -138,8 +138,7 @@ export default {
         {
           nombre: 'Liliana Victoria Morales Gualdrón',
           cargo: 'Responsable de línea de producción',
-          centro:
-            'Centro de Comercio y Servicios - Regional Tolima',
+          centro: 'Centro de Comercio y Servicios - Regional Tolima',
         },
       ],
     },
@@ -159,20 +158,17 @@ export default {
         {
           nombre: 'Nombre_responsable',
           cargo: 'Diseñador web',
-          centro:
-            'Centro de Comercio y Servicios - Regional Tolima',
+          centro: 'Centro de Comercio y Servicios - Regional Tolima',
         },
         {
           nombre: 'Diego Fernando Velasco Güiza',
           cargo: 'Desarrollador Fullstack',
-          centro:
-            'Centro de Comercio y Servicios - Regional Tolima',
+          centro: 'Centro de Comercio y Servicios - Regional Tolima',
         },
         {
           nombre: 'Nombre_responsable',
           cargo: 'Animación y producción audiovisual',
-          centro:
-            'Centro de Comercio y Servicios - Regional Tolima',
+          centro: 'Centro de Comercio y Servicios - Regional Tolima',
         },
       ],
     },
@@ -182,20 +178,17 @@ export default {
         {
           nombre: 'Nombre_responsable',
           cargo: 'Evaluación de contenidos inclusivos y accesibles',
-          centro:
-            'Centro de Comercio y Servicios - Regional Tolima',
+          centro: 'Centro de Comercio y Servicios - Regional Tolima',
         },
         {
           nombre: 'Nombre_responsable',
           cargo: 'Validación de recursos educativos digitales',
-          centro:
-            'Centro de Comercio y Servicios - Regional Tolima',
+          centro: 'Centro de Comercio y Servicios - Regional Tolima',
         },
         {
           nombre: 'Nombre_responsable',
           cargo: 'Validación de recursos educativos digitales',
-          centro:
-            'Centro de Comercio y Servicios - Regional Tolima',
+          centro: 'Centro de Comercio y Servicios - Regional Tolima',
         },
       ],
     },
