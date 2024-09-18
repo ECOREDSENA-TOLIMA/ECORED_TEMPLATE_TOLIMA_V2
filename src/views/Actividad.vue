@@ -17,8 +17,7 @@ export default {
     cuestionario: {
       tema: 'Nombre del componente formativo',
       titulo: 'Cuestionario',
-      introduccion:
-        '<b> Objetivo:</b> Texto de Word',
+      introduccion: '<b> Objetivo:</b> Texto de Word',
       barajarPreguntas: false,
       preguntas: [
         {
