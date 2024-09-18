@@ -18,7 +18,7 @@ export default {
       tema: 'Nombre del componente formativo',
       titulo: 'Cuestionario',
       introduccion:
-        'Esta actividad le permitirá determinar el grado de apropiación de los contenidos del componente formativo. Lea cada enunciado y luego seleccione la respuesta correcta según corresponda.',
+        '<b> Objetivo:</b> Texto de Word',
       barajarPreguntas: false,
       preguntas: [
         {
