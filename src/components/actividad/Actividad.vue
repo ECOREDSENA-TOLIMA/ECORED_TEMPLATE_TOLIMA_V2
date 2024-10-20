@@ -11,14 +11,35 @@
         <p class="mb-0" v-html="cuestionario.introduccion"></p>
       </div>
     </div>
-    <div class="tarjeta tarjeta--lightest-gray p-4 p-md-5">
+    <div class="tarjeta tarjeta--lightest-gray px-4 pb-4 pt-4 px-md-5">
+      <div
+        v-if="respuestas.length !== preguntas.length"
+        class="d-flex justify-content-end mb-2"
+      >
+        <div class="form-check form-switch">
+          <input
+            id="switchCheckAudio"
+            v-model="audioEnabled"
+            class="form-check-input"
+            type="checkbox"
+          />
+          <label class="form-check-label" for="switchCheckAudio">¿Audio?</label>
+        </div>
+      </div>
       <ActividadResultados
         v-if="respuestas.length === preguntas.length"
         :respuestas="respuestas"
+        :mensaje-aprobado="cuestionario.mensaje_final_aprobado"
+        :mensaje-reprobado="cuestionario.mensaje_final_reprobado"
+        :porcentaje-aprobadas="porcentajeAprobadas"
+        :preguntas-count="preguntas.length"
+        :total-preguntas-base="cuestionario.totalPreguntasBase"
+        @reiniciar="onReiniciar"
       />
       <ActividadPregunta
         v-else
         :pregunta="preguntaSelected"
+        :numero-pregunta="preguntaSelectedIdx + 1"
         @respuestaSelected="onRrespuestaSelected"
       />
     </div>
@@ -27,6 +48,7 @@
       :preguntas-count="preguntas.length"
       :respuestas-length="respuestas.length"
       :continuar-disabled="continuarDisabled"
+      :respuestas="respuestas"
       class="mx-4 mx-md-5"
       @continuar="onContinuar"
       @reiniciar="onReiniciar"
@@ -35,6 +57,11 @@
 </template>
 
 <script>
+import screenChangeSound from '@/assets/actividad/audio/screen-change.mp3'
+import successSound from '@/assets/actividad/audio/success.mp3'
+import failSound from '@/assets/actividad/audio/fail.mp3'
+import endGameSuccessSound from '@/assets/actividad/audio/end-game-success.mp3'
+import endGameFailSound from '@/assets/actividad/audio/end-game-fail.mp3'
 import ActividadPregunta from './ActividadPregunta'
 import ActividadBarraAvance from './ActividadBarraAvance'
 import ActividadResultados from './ActividadResultados'
@@ -61,6 +88,8 @@ export default {
     respuestaActual: {},
     respuestas: [],
     continuarDisabled: true,
+    audioEnabled: true,
+    totalPreguntasOriginales: 0,
   }),
   computed: {
     preguntas() {
@@ -80,20 +109,19 @@ export default {
     preguntaSelected() {
       return this.preguntas[this.preguntaSelectedIdx]
     },
-    // continuarDisabled() {
-    //   return !this.respuestas.some(r => r.id === this.preguntaSelected.id)
-    // },
+    porcentajeAprobadas() {
+      if (this.respuestas.length === 0) return 0
+      const aprobadas = this.respuestas.filter(r => r.esCorrecta).length
+      return Math.round((aprobadas / this.respuestas.length) * 100)
+    },
   },
   methods: {
     shuffle(array) {
       let currentIndex = array.length
       let randomIndex
-      // While there remain elements to shuffle.
       while (currentIndex > 0) {
-        // Pick a remaining element.
         randomIndex = Math.floor(Math.random() * currentIndex)
         currentIndex--
-        // And swap it with the current element.
         ;[array[currentIndex], array[randomIndex]] = [
           array[randomIndex],
           array[currentIndex],
@@ -106,6 +134,11 @@ export default {
       this.respuestaActual = {
         id: this.preguntaSelected.id,
         esCorrecta: respuestaEsCorrecta,
+      }
+      if (respuestaEsCorrecta) {
+        this.reproducirSonido(successSound)
+      } else {
+        this.reproducirSonido(failSound)
       }
     },
     onContinuar() {
@@ -123,6 +156,9 @@ export default {
 
       if (this.preguntaSelectedIdx < this.preguntas.length - 1) {
         this.preguntaSelectedIdx += 1
+        this.reproducirSonido(screenChangeSound)
+      } else {
+        this.finalizarPrueba()
       }
     },
     onReiniciar() {
@@ -130,6 +166,25 @@ export default {
       this.respuestas = []
       this.respuestaActual = {}
       this.intentos += 1
+      this.$emit('reiniciar')
+    },
+    reproducirSonido(audioSrc) {
+      if (this.audioEnabled) {
+        const audio = new Audio(audioSrc)
+        audio.play()
+      }
+    },
+    finalizarPrueba() {
+      const totalPreguntas = this.preguntas.length
+      const respuestasCorrectas = this.respuestas.filter(r => r.esCorrecta)
+        .length
+      const porcentajeAprobacion = (respuestasCorrectas / totalPreguntas) * 100
+
+      if (porcentajeAprobacion >= 70) {
+        this.reproducirSonido(endGameSuccessSound)
+      } else {
+        this.reproducirSonido(endGameFailSound)
+      }
     },
   },
 }
@@ -141,6 +196,5 @@ export default {
   pointer-events: none
 
 .tarjeta--lightest-gray
-  //background: #eaeff3
   border: 3px solid #dce4eb
 </style>
